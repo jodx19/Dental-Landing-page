@@ -10,18 +10,19 @@ export const Button = ({
   type = 'button',
   ...props 
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center font-bold rounded-lg transition-all duration-300 cursor-pointer active:scale-95';
   
   const variants = {
-    primary: 'bg-accent text-white hover:bg-opacity-90 shadow-lg hover:shadow-xl',
-    secondary: 'bg-secondary text-dark hover:bg-opacity-80 border-2 border-accent',
-    outline: 'bg-transparent text-accent border-2 border-accent hover:bg-accent hover:text-white',
+    primary: 'bg-primaryGold text-textHeading hover:bg-darkGold hover:text-white shadow-lg hover:shadow-xl border-none',
+    secondary: 'bg-white text-textHeading border-2 border-primaryGold hover:bg-primaryGold/10',
+    outline: 'bg-transparent text-primaryGold border-2 border-primaryGold hover:bg-primaryGold hover:text-textHeading',
+    dark: 'bg-primaryDark text-white hover:bg-black',
   };
   
   const sizes = {
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    lg: 'px-10 py-4 text-lg',
   };
   
   return (
@@ -29,8 +30,8 @@ export const Button = ({
       type={type}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
       onClick={onClick}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.98 }}
       {...props}
     >
       {children}

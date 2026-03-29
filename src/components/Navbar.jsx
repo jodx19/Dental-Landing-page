@@ -81,7 +81,7 @@ export const Navbar = () => {
             </button>
 
             {/* Call Button */}
-            <a href="tel:+201012345678">
+            <a href={`tel:${translations[language].booking.phone}`}>
               <Button variant="primary" size="lg" className="hidden md:flex rounded-full px-8 h-12 gap-2 text-sm shadow-lg shadow-primaryGold/20 active:scale-95">
                 <Phone size={18} />
                 {t.bookNow}
@@ -138,7 +138,7 @@ export const Navbar = () => {
                 {language === 'ar' ? 'Switch to English' : 'تغيير للغة العربية'}
               </Button>
               
-              <a href="tel:+201012345678" className="w-full">
+              <a href={`tel:${translations[language].booking.phone}`} className="w-full">
                 <Button variant="primary" size="lg" className="w-full h-14 rounded-2xl gap-3">
                   <Phone size={22} />
                   {language === 'ar' ? 'اتصل بنا الآن' : 'Call Us Now'}
