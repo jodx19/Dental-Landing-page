@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #FDF8F3;
+    color: #1C1C1C;
+    font-family: 'Cairo', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #1A1A1A;
+    text-shadow: none !important;
+  }
+
+  h1 {
+    @apply text-5xl md:text-7xl font-black tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold relative pb-4 text-center mb-12;
+  }
+
+  h2::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-[60px] h-[3px] bg-primaryGold rounded-full;
+  }
+
+  p {
+    @apply opacity-100 !important;
+  }
+
+  input::placeholder, 
+  textarea::placeholder,
+  select::placeholder {
+    color: #888888;
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primaryGold text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:bg-darkGold hover:shadow-lg active:scale-95 relative overflow-hidden;
+  }
+
+  .pulse-ring {
+    @apply relative;
+  }
+
+  .pulse-ring::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-primaryGold opacity-30 animate-ping;
+  }
+
+  .glass-card {
+    @apply bg-white backdrop-blur-md border border-accentLight shadow-xl;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    @apply opacity-0 translate-y-4 animate-[fadeIn_0.6s_ease-out_forwards];
+  }
+
+  @keyframes fadeIn {
+    to {
+      @apply opacity-100 translate-y-0;
+    }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  .bg-stripes {
+    background-image: linear-gradient(45deg, #F0E8DC 25%, transparent 25%, transparent 50%, #F0E8DC 50%, #F0E8DC 75%, transparent 75%, transparent);
+    background-size: 4px 4px;
+    opacity: 0.2;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+[dir="rtl"] .hero-diagonal {
+  clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
+}
